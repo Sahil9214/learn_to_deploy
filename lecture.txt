@@ -1,0 +1,6 @@
+fetch(url,{
+    method:"POST"
+    headers:{
+        authorization:`Bearer ${token}`
+    }
+})
