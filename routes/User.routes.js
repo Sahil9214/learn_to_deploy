@@ -1,6 +1,6 @@
 const express = require("express");
 const userRouter = express.Router();
-const UserModel = require("../backend/model/User.model");
+const UserModel = require("../model/User.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -12,7 +12,7 @@ userRouter.post("/register", async (req, res) => {
       const user = UserModel({ email, pass: hash, age, name });
       await user.save();
       console.log(user);
-      res.status(200).send({ msg: "Register successfull" });
+      res.status(200).send({ msg: "Register successfully" });
     });
   } catch (err) {
     res.status(400).json({ msg: "New User cannot has been register" });

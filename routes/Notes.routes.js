@@ -1,6 +1,6 @@
 const express = require("express");
 const noteRouter = express.Router();
-const NoteModel = require("../backend/model/Notes.model");
+const NoteModel = require("../model/Notes.model");
 noteRouter.post("/create", async (req, res) => {
   try {
     const note = NoteModel(req.body);
@@ -16,7 +16,7 @@ noteRouter.get("/", async (req, res) => {
     res.status(400).send({ msg: err });
   }
 });
-noteRouter.update("/update/:id", async (req, res) => {
+noteRouter.patch("/update/:id", async (req, res) => {
   const { noteID } = req.params;
   const note = await NoteModel.find({ _id: noteID });
   try {
